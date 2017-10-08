@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A724F7C1F8AC0000096AC78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A724F7B1F8AC0000096AC78 /* Main.storyboard */; };
 		5A7AB3271F89E46D002AA87F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7AB3261F89E46D002AA87F /* AppDelegate.swift */; };
 		5A7AB3291F89E46D002AA87F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A7AB3281F89E46D002AA87F /* Assets.xcassets */; };
 		5A7AB32C1F89E46D002AA87F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A7AB32A1F89E46D002AA87F /* LaunchScreen.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A724F7B1F8AC0000096AC78 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Storyboards/Main.storyboard; sourceTree = "<group>"; };
 		5A7AB3231F89E46D002AA87F /* PotatoSteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PotatoSteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7AB3261F89E46D002AA87F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A7AB3281F89E46D002AA87F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				5A7AB33A1F89E76B002AA87F /* MainViewController.swift */,
+				5A724F7B1F8AC0000096AC78 /* Main.storyboard */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 			files = (
 				5A7AB3291F89E46D002AA87F /* Assets.xcassets in Resources */,
 				5A7AB32C1F89E46D002AA87F /* LaunchScreen.storyboard in Resources */,
+				5A724F7C1F8AC0000096AC78 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
