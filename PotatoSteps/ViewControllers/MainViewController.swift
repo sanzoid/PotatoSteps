@@ -11,6 +11,10 @@
 // Show what the number of steps is 
 // A button to update the number of steps for when the step goal increases
 
+// Features:
+// A way to pick the date so that can update if wasn't able to update on that day
+// Automatic update
+
 import UIKit
 import HealthKit
 
@@ -18,9 +22,13 @@ class MainViewController: UIViewController {
 
     let healthKitStore: HKHealthStore = HKHealthStore()
     
+    // keys 
+    static let stepGoalKey = "stepGoalKey"
+    
     var stepGoal: Double = 0 {
         didSet {
             stepGoalLabel.text = "\(Int(stepGoal))"
+            UserDefaults.standard.set(stepGoal, forKey: MainViewController.stepGoalKey)
         }
     }
     
@@ -41,15 +49,17 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.title = "PotatoSteps"
+        
         self.setConstraints()
         DispatchQueue.main.async {
         }
         
-        stepGoal = 7000
+        stepGoal = UserDefaults.standard.value(forKey: MainViewController.stepGoalKey) as? Double ?? 0
         
         stepGoalTitleLabel.text = "Step Goal:"
-        stepRunButton.titleLabel?.text = "RUN LIKE A POTATO!!!"
-        stepGoalChangeButton.titleLabel?.text = "Change Step Goal"
+        stepRunButton.setTitle("I can run to potato", for: .normal)
+        stepGoalChangeButton.setTitle("Change Step Goal", for: .normal)
         
         // actions
         stepGoalChangeButton.addTarget(self, action: #selector(changeStepGoal(_:)), for: .touchUpInside)
