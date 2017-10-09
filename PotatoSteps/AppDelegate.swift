@@ -16,19 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        // Override point for customization after application launch.
         self.window!.backgroundColor = UIColor.white
         self.window!.makeKeyAndVisible()
         
+        // set root view controller
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateInitialViewController()
         self.window?.rootViewController = initialViewController
         
-        
-//        let mainViewController = MainViewController()
-//        let navController = UINavigationController(rootViewController: mainViewController)
-//        
-//        self.window?.rootViewController = navController
+        // set how often a background fetch will occur
+        UIApplication.shared.setMinimumBackgroundFetchInterval(60)
         
         return true
     }
@@ -55,6 +52,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    // background fetch
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        // complete step goal 
+        if let navVC = self.window?.rootViewController as? UINavigationController,
+            let mainVC = navVC.viewControllers[0] as? MainViewController {
+            mainVC.completeStepGoalInBackground()
+        }
+        
+        // say there's newData every time so that it thinks it's important
+        completionHandler(.newData)
+    }
+    
 }
 

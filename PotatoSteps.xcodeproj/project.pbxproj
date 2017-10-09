@@ -121,6 +121,9 @@
 						DevelopmentTeam = BHCQLQ9GC9;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.HealthKit = {
 								enabled = 1;
 							};

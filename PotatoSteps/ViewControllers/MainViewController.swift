@@ -14,6 +14,10 @@
 // Features:
 // A way to pick the date so that can update if wasn't able to update on that day
 // Automatic update
+// Make a widget to display stepCount to make sure it's getting updated in the background
+
+// To do:
+// Completion handlers
 
 import UIKit
 import HealthKit
@@ -25,9 +29,11 @@ class MainViewController: UIViewController {
     // keys 
     static let stepGoalKey = "stepGoalKey"
     
-    var stepGoal: Double = 0 {
+    var stepGoal: Double = UserDefaults.standard.value(forKey: MainViewController.stepGoalKey) as? Double ?? 0 {
         didSet {
-            stepGoalLabel.text = "\(Int(stepGoal))"
+            if let stepGoalLabel = stepGoalLabel {
+                stepGoalLabel.text = "\(Int(stepGoal))"
+            }
             UserDefaults.standard.set(stepGoal, forKey: MainViewController.stepGoalKey)
         }
     }
@@ -48,15 +54,11 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationItem.title = "PotatoSteps"
         
         self.setConstraints()
-        DispatchQueue.main.async {
-        }
         
-        stepGoal = UserDefaults.standard.value(forKey: MainViewController.stepGoalKey) as? Double ?? 0
-        
+        // labels
+        navigationItem.title = "PotatoSteps"
         stepGoalTitleLabel.text = "Step Goal:"
         stepRunButton.setTitle("I can run to potato", for: .normal)
         stepGoalChangeButton.setTitle("Change Step Goal", for: .normal)
@@ -65,6 +67,7 @@ class MainViewController: UIViewController {
         stepGoalChangeButton.addTarget(self, action: #selector(changeStepGoal(_:)), for: .touchUpInside)
         stepRunButton.addTarget(self, action: #selector(potatoRun(_:)), for: .touchUpInside)
 
+        stepGoal = UserDefaults.standard.value(forKey: MainViewController.stepGoalKey) as? Double ?? 0
         
         getSteps(completion: {
             stepCount in
@@ -73,7 +76,7 @@ class MainViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        authorize()
+        checkAndRequestAuthorization()
     }
     
     func setConstraints() {
@@ -101,9 +104,6 @@ class MainViewController: UIViewController {
     }
     
     func changeStepGoal(_ sender: UIButton) {
-        print("Change Step Goal")
-        
-        // prompt for change 
         
         let alert = UIAlertController(title: "Update Step Goal", message: "Enter in the number of steps you would like to run on the daily.", preferredStyle: .alert)
         
@@ -130,22 +130,32 @@ class MainViewController: UIViewController {
     }
     
     func potatoRun(_ sender: UIButton) {
-        print("Potato run!")
-        
+        completeStepGoal()
+    }
+    
+    func completeStepGoalInBackground() {
+        // increase by 1 so we can see if it's happening
+        self.stepGoal += 1
         completeStepGoal()
     }
     
     func completeStepGoal() {
+        print("completeStepGoal \(stepGoal)")
+        
         // if steps < stepGoal, add remaining
         getSteps(completion: {
             stepCount in
             if stepCount < self.stepGoal {
                 self.addSteps(self.stepGoal - stepCount)
             }
+            else {
+                print("Step goal complete for the day")
+            }
         })
     }
     
-    func authorize() {
+    // TODO: completion handler
+    func checkAndRequestAuthorization() {
         // Check authorization and request if needed
         if !(healthKitStore.authorizationStatus(for: HKObjectType.quantityType(forIdentifier: .stepCount)!) == .sharingAuthorized) {
             authorizeHealthKit(completion: {
@@ -160,6 +170,7 @@ class MainViewController: UIViewController {
     }
     
     func dayDate() -> Date {
+        
         // Same day, but 6AM
         let calendar = Calendar.current
         var components = calendar.dateComponents(in: .current, from: Date())
@@ -171,6 +182,8 @@ class MainViewController: UIViewController {
     }
     
     func addSteps(_ value: Double) {
+        
+        checkAndRequestAuthorization()
         
         let startDate = dayDate()
         let endDate = startDate
@@ -188,6 +201,8 @@ class MainViewController: UIViewController {
     
     func getSteps(completion: ((_ stepCount: Double) -> Void)?) {
         
+        checkAndRequestAuthorization()
+        
         let stepQuantityType = HKQuantityType.quantityType(forIdentifier: .stepCount)
         let date = Date()
         let calendar = Calendar.current
@@ -204,7 +219,7 @@ class MainViewController: UIViewController {
             query, results, error in
             
             if error != nil {
-                print(error?.localizedDescription)
+                print("getSteps: \(error?.localizedDescription ?? "Error")")
                 return
             }
             
@@ -239,7 +254,12 @@ class MainViewController: UIViewController {
         
         healthKitStore.requestAuthorization(toShare: dataToWrite, read: dataToRead, completion: {
             (success, error) -> Void in
-            completion(success, error)
+            if error != nil {
+                print("authorizeHealthKit: \(error?.localizedDescription)")
+            }
+            else {
+                completion(success, error)
+            }
         })
     }
 }
