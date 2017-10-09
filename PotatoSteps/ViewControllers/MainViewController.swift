@@ -156,6 +156,8 @@ class MainViewController: UIViewController {
     
     // TODO: completion handler
     func checkAndRequestAuthorization() {
+        print("checkAndRequestAuthorization")
+        
         // Check authorization and request if needed
         if !(healthKitStore.authorizationStatus(for: HKObjectType.quantityType(forIdentifier: .stepCount)!) == .sharingAuthorized) {
             authorizeHealthKit(completion: {
@@ -195,7 +197,10 @@ class MainViewController: UIViewController {
         healthKitStore.save(stepSample, withCompletion: {
             (success: Bool, error: Error?) in
             print("Saved steps: \(value) \(stepSample)")
-            self.getSteps(completion: nil)
+            self.getSteps(completion: {
+                stepCount in
+                self.todaysSteps = stepCount
+            })
         })
     }
     
@@ -217,7 +222,6 @@ class MainViewController: UIViewController {
         
         query.initialResultsHandler = {
             query, results, error in
-            
             if error != nil {
                 print("getSteps: \(error?.localizedDescription ?? "Error")")
                 return
@@ -231,8 +235,10 @@ class MainViewController: UIViewController {
                         let steps = quantity.doubleValue(for: HKUnit.count())
                         
                         print("Steps: \(steps)")
-                        
                         completion?(steps)
+                    }
+                    else {
+                        completion?(0)
                     }
                 })
             }
@@ -255,7 +261,7 @@ class MainViewController: UIViewController {
         healthKitStore.requestAuthorization(toShare: dataToWrite, read: dataToRead, completion: {
             (success, error) -> Void in
             if error != nil {
-                print("authorizeHealthKit: \(error?.localizedDescription)")
+                print("authorizeHealthKit: \(error?.localizedDescription ?? "Error")")
             }
             else {
                 completion(success, error)
