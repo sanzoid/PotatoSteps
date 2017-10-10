@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -68,8 +69,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="RUN LIKE A POTATO!!!" image="potatosteps_round"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Background Update: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGb-8L-wWz">
+                                <rect key="frame" x="24" y="644.5" width="147" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SGb-8L-wWz" firstAttribute="leading" secondItem="yZf-3Q-obu" secondAttribute="leadingMargin" constant="8" id="I7S-s3-RiY"/>
+                            <constraint firstItem="a5r-dw-7gm" firstAttribute="top" secondItem="SGb-8L-wWz" secondAttribute="bottom" constant="8" id="yT1-iJ-4Kx"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="n6Z-S4-4hi"/>
                     <connections>
@@ -78,6 +89,7 @@
                         <outlet property="stepGoalLabel" destination="3hD-Kt-aML" id="nz0-K0-0Vk"/>
                         <outlet property="stepGoalTitleLabel" destination="7Rf-Tj-9Gs" id="OoJ-yi-Pde"/>
                         <outlet property="stepRunButton" destination="MAF-lJ-77A" id="cN1-Cq-Xoy"/>
+                        <outlet property="tempLabel" destination="SGb-8L-wWz" id="K6w-f1-gzE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwR-QY-ZKY" userLabel="First Responder" sceneMemberID="firstResponder"/>

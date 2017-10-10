@@ -28,6 +28,7 @@ class MainViewController: UIViewController {
     
     // keys 
     static let stepGoalKey = "stepGoalKey"
+    static let tempTextKey = "tempTextKey"
     
     var stepGoal: Double = UserDefaults.standard.value(forKey: MainViewController.stepGoalKey) as? Double ?? 0 {
         didSet {
@@ -51,6 +52,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var stepRunButton: UIButton!
     @IBOutlet weak var stepGoalChangeButton: UIButton!
     @IBOutlet weak var stepCountLabel: UILabel!
+    @IBOutlet weak var tempLabel: UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,15 +70,17 @@ class MainViewController: UIViewController {
         stepRunButton.addTarget(self, action: #selector(potatoRun(_:)), for: .touchUpInside)
 
         stepGoal = UserDefaults.standard.value(forKey: MainViewController.stepGoalKey) as? Double ?? 0
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        checkAndRequestAuthorization()
+        
+        tempLabel?.text = UserDefaults.standard.value(forKey: MainViewController.tempTextKey) as? String ?? "Error"
         
         getSteps(completion: {
             stepCount in
             self.todaysSteps = stepCount
         })
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        checkAndRequestAuthorization()
     }
     
     func setConstraints() {
@@ -176,6 +180,7 @@ class MainViewController: UIViewController {
     }
     
     func dayDate() -> Date {
+        return Date()
         
         // Same day, but 6AM
         let calendar = Calendar.current

@@ -55,11 +55,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // background fetch
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
-        // complete step goal 
+        let dateString = DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .medium)
+        var backgroundMessage = "Background ran: \(dateString)."
+        
+        // complete step goal
         if let navVC = self.window?.rootViewController as? UINavigationController,
             let mainVC = navVC.viewControllers[0] as? MainViewController {
             mainVC.completeStepGoalInBackground()
+            backgroundMessage += " Tried to complete \(mainVC.stepGoal)"
         }
+        
+        UserDefaults.standard.set(backgroundMessage, forKey: MainViewController.tempTextKey)
         
         // say there's newData every time so that it thinks it's important
         completionHandler(.newData)
