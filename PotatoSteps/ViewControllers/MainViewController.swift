@@ -101,6 +101,10 @@ class MainViewController: UIViewController {
         view.addConstraint(NSLayoutConstraint(item: stepGoalLabel, attribute: .centerX, relatedBy: .equal, toItem: stepGoalLabel.superview!, attribute: .centerX, multiplier: 1.0, constant: 0))
         view.addConstraint(NSLayoutConstraint(item: stepRunButton, attribute: .centerX, relatedBy: .equal, toItem: stepRunButton.superview!, attribute: .centerX, multiplier: 1.0, constant: 0))
         view.addConstraint(NSLayoutConstraint(item: stepCountLabel, attribute: .centerX, relatedBy: .equal, toItem: stepCountLabel.superview!, attribute: .centerX, multiplier: 1.0, constant: 0))
+        
+        // size constraints
+        view.addConstraint(NSLayoutConstraint(item: stepRunButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 200))
+        view.addConstraint(NSLayoutConstraint(item: stepRunButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 200))
     }
     
     func changeStepGoal(_ sender: UIButton) {
