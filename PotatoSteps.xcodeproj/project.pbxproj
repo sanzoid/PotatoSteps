@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A5799A61F8D9E4E007FCB77 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5799A51F8D9E4E007FCB77 /* NotificationCenter.framework */; };
+		5A5799A91F8D9E4E007FCB77 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5799A81F8D9E4E007FCB77 /* TodayViewController.swift */; };
+		5A5799AC1F8D9E4E007FCB77 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5799AA1F8D9E4E007FCB77 /* MainInterface.storyboard */; };
+		5A5799B01F8D9E4E007FCB77 /* PotatoStepsWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5A5799A41F8D9E4E007FCB77 /* PotatoStepsWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5A5799B51F8DA078007FCB77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A7AB3281F89E46D002AA87F /* Assets.xcassets */; };
+		5A5799B71F8DA437007FCB77 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5799B61F8DA437007FCB77 /* HealthKitManager.swift */; };
 		5A724F7C1F8AC0000096AC78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A724F7B1F8AC0000096AC78 /* Main.storyboard */; };
 		5A7AB3271F89E46D002AA87F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7AB3261F89E46D002AA87F /* AppDelegate.swift */; };
 		5A7AB3291F89E46D002AA87F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A7AB3281F89E46D002AA87F /* Assets.xcassets */; };
@@ -15,7 +21,37 @@
 		5A7AB33B1F89E76B002AA87F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7AB33A1F89E76B002AA87F /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5A5799AE1F8D9E4E007FCB77 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A7AB31B1F89E46C002AA87F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A5799A31F8D9E4E007FCB77;
+			remoteInfo = PotatoStepsWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5A5799B41F8D9E4E007FCB77 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5A5799B01F8D9E4E007FCB77 /* PotatoStepsWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		5A5799A41F8D9E4E007FCB77 /* PotatoStepsWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PotatoStepsWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A5799A51F8D9E4E007FCB77 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		5A5799A81F8D9E4E007FCB77 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		5A5799AB1F8D9E4E007FCB77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		5A5799AD1F8D9E4E007FCB77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A5799B61F8DA437007FCB77 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		5A724F7B1F8AC0000096AC78 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Storyboards/Main.storyboard; sourceTree = "<group>"; };
 		5A7AB3231F89E46D002AA87F /* PotatoSteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PotatoSteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7AB3261F89E46D002AA87F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +64,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5A5799A11F8D9E4E007FCB77 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A5799A61F8D9E4E007FCB77 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5A7AB3201F89E46C002AA87F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -39,10 +83,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A5799A71F8D9E4E007FCB77 /* PotatoStepsWidget */ = {
+			isa = PBXGroup;
+			children = (
+				5A5799A81F8D9E4E007FCB77 /* TodayViewController.swift */,
+				5A5799AA1F8D9E4E007FCB77 /* MainInterface.storyboard */,
+				5A5799AD1F8D9E4E007FCB77 /* Info.plist */,
+			);
+			path = PotatoStepsWidget;
+			sourceTree = "<group>";
+		};
 		5A7AB31A1F89E46C002AA87F = {
 			isa = PBXGroup;
 			children = (
 				5A7AB3251F89E46D002AA87F /* PotatoSteps */,
+				5A5799A71F8D9E4E007FCB77 /* PotatoStepsWidget */,
 				5A7AB3241F89E46D002AA87F /* Products */,
 				5A7AB3341F89E66A002AA87F /* Frameworks */,
 			);
@@ -52,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				5A7AB3231F89E46D002AA87F /* PotatoSteps.app */,
+				5A5799A41F8D9E4E007FCB77 /* PotatoStepsWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -73,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				5A7AB3371F89E694002AA87F /* HealthKit.framework */,
+				5A5799A51F8D9E4E007FCB77 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -82,6 +139,7 @@
 			children = (
 				5A7AB33A1F89E76B002AA87F /* MainViewController.swift */,
 				5A724F7B1F8AC0000096AC78 /* Main.storyboard */,
+				5A5799B61F8DA437007FCB77 /* HealthKitManager.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -89,6 +147,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5A5799A31F8D9E4E007FCB77 /* PotatoStepsWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A5799B31F8D9E4E007FCB77 /* Build configuration list for PBXNativeTarget "PotatoStepsWidget" */;
+			buildPhases = (
+				5A5799A01F8D9E4E007FCB77 /* Sources */,
+				5A5799A11F8D9E4E007FCB77 /* Frameworks */,
+				5A5799A21F8D9E4E007FCB77 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PotatoStepsWidget;
+			productName = PotatoStepsWidget;
+			productReference = 5A5799A41F8D9E4E007FCB77 /* PotatoStepsWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		5A7AB3221F89E46C002AA87F /* PotatoSteps */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A7AB3301F89E46D002AA87F /* Build configuration list for PBXNativeTarget "PotatoSteps" */;
@@ -96,10 +171,12 @@
 				5A7AB31F1F89E46C002AA87F /* Sources */,
 				5A7AB3201F89E46C002AA87F /* Frameworks */,
 				5A7AB3211F89E46C002AA87F /* Resources */,
+				5A5799B41F8D9E4E007FCB77 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5A5799AF1F8D9E4E007FCB77 /* PBXTargetDependency */,
 			);
 			name = PotatoSteps;
 			productName = PotatoSteps;
@@ -112,10 +189,15 @@
 		5A7AB31B1F89E46C002AA87F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0820;
+				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = sandzapps;
 				TargetAttributes = {
+					5A5799A31F8D9E4E007FCB77 = {
+						CreatedOnToolsVersion = 9.0;
+						DevelopmentTeam = BHCQLQ9GC9;
+						ProvisioningStyle = Automatic;
+					};
 					5A7AB3221F89E46C002AA87F = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = BHCQLQ9GC9;
@@ -148,11 +230,21 @@
 			projectRoot = "";
 			targets = (
 				5A7AB3221F89E46C002AA87F /* PotatoSteps */,
+				5A5799A31F8D9E4E007FCB77 /* PotatoStepsWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5A5799A21F8D9E4E007FCB77 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A5799B51F8DA078007FCB77 /* Assets.xcassets in Resources */,
+				5A5799AC1F8D9E4E007FCB77 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5A7AB3211F89E46C002AA87F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -166,18 +258,43 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5A5799A01F8D9E4E007FCB77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A5799A91F8D9E4E007FCB77 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5A7AB31F1F89E46C002AA87F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				5A7AB3271F89E46D002AA87F /* AppDelegate.swift in Sources */,
 				5A7AB33B1F89E76B002AA87F /* MainViewController.swift in Sources */,
+				5A5799B71F8DA437007FCB77 /* HealthKitManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5A5799AF1F8D9E4E007FCB77 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A5799A31F8D9E4E007FCB77 /* PotatoStepsWidget */;
+			targetProxy = 5A5799AE1F8D9E4E007FCB77 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		5A5799AA1F8D9E4E007FCB77 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A5799AB1F8D9E4E007FCB77 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		5A7AB32A1F89E46D002AA87F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -189,6 +306,58 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5A5799B11F8D9E4E007FCB77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BHCQLQ9GC9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = PotatoStepsWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sandzapps.PotatoSteps.PotatoStepsWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5A5799B21F8D9E4E007FCB77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BHCQLQ9GC9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = PotatoStepsWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sandzapps.PotatoSteps.PotatoStepsWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		5A7AB32E1F89E46D002AA87F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -285,8 +454,10 @@
 		5A7AB3311F89E46D002AA87F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PotatoSteps/PotatoSteps.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = BHCQLQ9GC9;
 				INFOPLIST_FILE = PotatoSteps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -299,8 +470,10 @@
 		5A7AB3321F89E46D002AA87F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PotatoSteps/PotatoSteps.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = BHCQLQ9GC9;
 				INFOPLIST_FILE = PotatoSteps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -313,6 +486,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5A5799B31F8D9E4E007FCB77 /* Build configuration list for PBXNativeTarget "PotatoStepsWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A5799B11F8D9E4E007FCB77 /* Debug */,
+				5A5799B21F8D9E4E007FCB77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5A7AB31E1F89E46C002AA87F /* Build configuration list for PBXProject "PotatoSteps" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

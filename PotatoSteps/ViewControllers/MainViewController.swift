@@ -76,12 +76,9 @@ class MainViewController: UIViewController
     
     override func viewDidAppear(_ animated: Bool)
     {
-        checkAndRequestAuthorization()
-        
         tempLabel?.text = UserDefaults.standard.value(forKey: MainViewController.tempTextKey) as? String ?? "Error"
         
-        getSteps(completion: {
-            stepCount in
+        HealthKitManager.getSteps(completion: { stepCount in
             self.todaysSteps = stepCount
         })
     }
@@ -157,10 +154,14 @@ class MainViewController: UIViewController
         print("completeStepGoal \(stepGoal)")
         
         // if steps < stepGoal, add remaining
-        getSteps(completion: {
-            stepCount in
+        HealthKitManager.getSteps(completion: { stepCount in
             if stepCount < self.stepGoal {
-                self.addSteps(self.stepGoal - stepCount)
+                HealthKitManager.addSteps(self.stepGoal - stepCount,
+                                          completion: { success, error in
+                    HealthKitManager.getSteps(completion: { stepCount in
+                        self.todaysSteps = stepCount
+                    })
+                })
             }
             else {
                 print("Step goal complete for the day")
@@ -168,128 +169,5 @@ class MainViewController: UIViewController
         })
     }
     
-    // TODO: completion handler
-    func checkAndRequestAuthorization()
-    {
-        print("checkAndRequestAuthorization")
-        
-        // Check authorization and request if needed
-        if !(healthKitStore.authorizationStatus(for: HKObjectType.quantityType(forIdentifier: .stepCount)!) == .sharingAuthorized)
-        {
-            authorizeHealthKit(completion: {
-                (authorized, error) -> Void in
-                if !authorized
-                {
-                    print("Health Kit not authorized!")
-                }
-                else
-                {
-                    print("Health Kit authorized!")
-                }
-            })
-        }
-    }
     
-    func dayDate() -> Date
-    {
-        // Same day, but 4AM - unlikely to overlap with any data
-        let calendar = Calendar.current
-        var components = calendar.dateComponents(in: .current, from: Date())
-        components.hour = 4
-        components.minute = 0
-        components.second = 0
-        
-        return components.date!
-    }
-    
-    func addSteps(_ value: Double)
-    {
-        checkAndRequestAuthorization()
-        
-        let startDate = dayDate()
-        let endDate = startDate
-        
-        let stepType = HKSampleType.quantityType(forIdentifier: .stepCount)!
-        let stepQuantity = HKQuantity(unit: HKUnit.count(), doubleValue: value)
-        let stepSample = HKQuantitySample(type: stepType, quantity: stepQuantity, start: startDate, end: endDate)
-        
-        healthKitStore.save(stepSample, withCompletion: {
-            (success: Bool, error: Error?) in
-            print("Saved steps: \(value) \(stepSample)")
-            self.getSteps(completion: {
-                stepCount in
-                self.todaysSteps = stepCount
-            })
-        })
-    }
-    
-    func getSteps(completion: ((_ stepCount: Double) -> Void)?)
-    {
-        checkAndRequestAuthorization()
-        
-        let stepQuantityType = HKQuantityType.quantityType(forIdentifier: .stepCount)
-        let startDate = Calendar.current.startOfDay(for: Date())
-        let endDate = Date()
-        
-        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictStartDate)
-        var interval = DateComponents()
-        interval.day = 1
-        
-        let query = HKStatisticsCollectionQuery(quantityType: stepQuantityType!, quantitySamplePredicate: predicate, options: [.cumulativeSum], anchorDate: startDate, intervalComponents: interval)
-        
-        query.initialResultsHandler = {
-            query, results, error in
-            if error != nil
-            {
-                print("getSteps: \(error?.localizedDescription ?? "Error")")
-                return
-            }
-            
-            if let results = results
-            {
-                results.enumerateStatistics(from: startDate, to: endDate, with: {
-                    statistics, stop in
-                    
-                    if let quantity = statistics.sumQuantity()
-                    {
-                        let steps = quantity.doubleValue(for: HKUnit.count())
-                        
-                        print("Steps: \(steps)")
-                        completion?(steps)
-                    }
-                    else
-                    {
-                        completion?(0)
-                    }
-                })
-            }
-        }
-        
-        healthKitStore.execute(query)
-    }
-    
-    func authorizeHealthKit(completion: @escaping (Bool, Error?) -> Swift.Void)
-    {
-        print("authorizeHealthKit")
-        
-        let dataToRead = Set(arrayLiteral: HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!)
-        let dataToWrite = Set(arrayLiteral: HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!)
-        
-        if !HKHealthStore.isHealthDataAvailable()
-        {
-            print("Health Kit ain't available.")
-        }
-        
-        healthKitStore.requestAuthorization(toShare: dataToWrite, read: dataToRead, completion: {
-            (success, error) -> Void in
-            if error != nil
-            {
-                print("authorizeHealthKit: \(error?.localizedDescription ?? "Error")")
-            }
-            else
-            {
-                completion(success, error)
-            }
-        })
-    }
 }
