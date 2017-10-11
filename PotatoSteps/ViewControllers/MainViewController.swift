@@ -140,34 +140,26 @@ class MainViewController: UIViewController
     
     func potatoRun(_ sender: UIButton)
     {
-        completeStepGoal()
+        PotatoRun.completeStepGoal()
     }
     
-    func completeStepGoalInBackground()
-    {
-        // increase by 1 so we can see if it's happening
-        self.stepGoal += 1
-        completeStepGoal()
-    }
-    
-    func completeStepGoal() {
-        print("completeStepGoal \(stepGoal)")
-        
-        // if steps < stepGoal, add remaining
-        HealthKitManager.getSteps(completion: { stepCount in
-            if stepCount < self.stepGoal {
-                HealthKitManager.addSteps(self.stepGoal - stepCount,
-                                          completion: { success, error in
-                    HealthKitManager.getSteps(completion: { stepCount in
-                        self.todaysSteps = stepCount
-                    })
-                })
-            }
-            else {
-                print("Step goal complete for the day")
-            }
-        })
-    }
-    
-    
+//    func completeStepGoal()
+//    {
+//        print("completeStepGoal \(stepGoal)")
+//
+//        // if steps < stepGoal, add remaining
+//        HealthKitManager.getSteps(completion: { stepCount in
+//            if stepCount < self.stepGoal {
+//                HealthKitManager.addSteps(self.stepGoal - stepCount,
+//                                          completion: { success, error in
+//                                            HealthKitManager.getSteps(completion: { stepCount in
+//                                                self.todaysSteps = stepCount
+//                                            })
+//                })
+//            }
+//            else {
+//                print("Step goal complete for the day")
+//            }
+//        })
+//    }
 }

@@ -13,6 +13,9 @@
 		5A5799B01F8D9E4E007FCB77 /* PotatoStepsWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5A5799A41F8D9E4E007FCB77 /* PotatoStepsWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5A5799B51F8DA078007FCB77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A7AB3281F89E46D002AA87F /* Assets.xcassets */; };
 		5A5799B71F8DA437007FCB77 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5799B61F8DA437007FCB77 /* HealthKitManager.swift */; };
+		5A5799B81F8DAB18007FCB77 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5799B61F8DA437007FCB77 /* HealthKitManager.swift */; };
+		5A5799BA1F8DABAA007FCB77 /* PotatoRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5799B91F8DABAA007FCB77 /* PotatoRun.swift */; };
+		5A5799BB1F8DABE0007FCB77 /* PotatoRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5799B91F8DABAA007FCB77 /* PotatoRun.swift */; };
 		5A724F7C1F8AC0000096AC78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A724F7B1F8AC0000096AC78 /* Main.storyboard */; };
 		5A7AB3271F89E46D002AA87F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7AB3261F89E46D002AA87F /* AppDelegate.swift */; };
 		5A7AB3291F89E46D002AA87F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A7AB3281F89E46D002AA87F /* Assets.xcassets */; };
@@ -52,6 +55,7 @@
 		5A5799AB1F8D9E4E007FCB77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		5A5799AD1F8D9E4E007FCB77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A5799B61F8DA437007FCB77 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		5A5799B91F8DABAA007FCB77 /* PotatoRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotatoRun.swift; sourceTree = "<group>"; };
 		5A724F7B1F8AC0000096AC78 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Storyboards/Main.storyboard; sourceTree = "<group>"; };
 		5A7AB3231F89E46D002AA87F /* PotatoSteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PotatoSteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7AB3261F89E46D002AA87F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 				5A7AB33A1F89E76B002AA87F /* MainViewController.swift */,
 				5A724F7B1F8AC0000096AC78 /* Main.storyboard */,
 				5A5799B61F8DA437007FCB77 /* HealthKitManager.swift */,
+				5A5799B91F8DABAA007FCB77 /* PotatoRun.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -262,7 +267,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A5799B81F8DAB18007FCB77 /* HealthKitManager.swift in Sources */,
 				5A5799A91F8D9E4E007FCB77 /* TodayViewController.swift in Sources */,
+				5A5799BB1F8DABE0007FCB77 /* PotatoRun.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +279,7 @@
 			files = (
 				5A7AB3271F89E46D002AA87F /* AppDelegate.swift in Sources */,
 				5A7AB33B1F89E76B002AA87F /* MainViewController.swift in Sources */,
+				5A5799BA1F8DABAA007FCB77 /* PotatoRun.swift in Sources */,
 				5A5799B71F8DA437007FCB77 /* HealthKitManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

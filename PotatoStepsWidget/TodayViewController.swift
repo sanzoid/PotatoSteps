@@ -9,21 +9,30 @@
 import UIKit
 import NotificationCenter
 
-class TodayViewController: UIViewController, NCWidgetProviding {
-    
+class TodayViewController: UIViewController, NCWidgetProviding
+{
     @IBOutlet weak var stepCountLabel: UILabel!
     @IBOutlet weak var stepRunButton: UIButton!
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
         
         self.addConstraints()
         
         stepCountLabel.textColor = UIColor.white
+        
+        stepRunButton.addTarget(self, action: #selector(potatoRun(_:)), for: .touchUpInside)
     }
     
-    func addConstraints() {
+    @objc func potatoRun(_ sender: UIButton)
+    {
+        PotatoRun.completeStepGoal()
+    }
+    
+    func addConstraints()
+    {
         stepCountLabel.translatesAutoresizingMaskIntoConstraints = false
         stepRunButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -33,7 +42,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         view.addConstraint(NSLayoutConstraint(item: stepRunButton, attribute: .trailing, relatedBy: .equal, toItem: stepRunButton.superview!, attribute: .trailing, multiplier: 1.0, constant: -16))
         view.addConstraint(NSLayoutConstraint(item: stepRunButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 100))
         view.addConstraint(NSLayoutConstraint(item: stepRunButton, attribute: .width, relatedBy: .equal, toItem: stepRunButton, attribute: .height, multiplier: 1.0, constant: 0))
-        
     }
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {

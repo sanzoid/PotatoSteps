@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let navVC = self.window?.rootViewController as? UINavigationController,
             let mainVC = navVC.viewControllers[0] as? MainViewController
         {
-            mainVC.completeStepGoalInBackground()
+            PotatoRun.completeStepGoalInBackground()
             backgroundMessage += " Complete \(mainVC.stepGoal)"
         }
         
