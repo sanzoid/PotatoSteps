@@ -22,8 +22,8 @@
 import UIKit
 import HealthKit
 
-class MainViewController: UIViewController {
-
+class MainViewController: UIViewController
+{
     let healthKitStore: HKHealthStore = HKHealthStore()
     
     // keys 
@@ -32,7 +32,8 @@ class MainViewController: UIViewController {
     
     var stepGoal: Double = UserDefaults.standard.value(forKey: MainViewController.stepGoalKey) as? Double ?? 0 {
         didSet {
-            if let stepGoalLabel = stepGoalLabel {
+            if let stepGoalLabel = stepGoalLabel
+            {
                 stepGoalLabel.text = "\(Int(stepGoal))"
             }
             UserDefaults.standard.set(stepGoal, forKey: MainViewController.stepGoalKey)
@@ -54,7 +55,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var stepCountLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel?
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         
         self.setConstraints()
@@ -72,7 +74,8 @@ class MainViewController: UIViewController {
         stepGoal = UserDefaults.standard.value(forKey: MainViewController.stepGoalKey) as? Double ?? 0
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool)
+    {
         checkAndRequestAuthorization()
         
         tempLabel?.text = UserDefaults.standard.value(forKey: MainViewController.tempTextKey) as? String ?? "Error"
@@ -83,15 +86,16 @@ class MainViewController: UIViewController {
         })
     }
     
-    func setConstraints() {
-        
+    func setConstraints()
+    {
         let views: [String : UIView] = ["stepGoalTitleLabel" : stepGoalTitleLabel,
                                         "stepGoalLabel" : stepGoalLabel,
                                         "stepGoalChangeButton" : stepGoalChangeButton,
                                         "stepRunButton" : stepRunButton,
                                         "stepCountLabel" : stepCountLabel]
         
-        for (_, view) in views {
+        for (_, view) in views
+        {
             view.translatesAutoresizingMaskIntoConstraints = false
         }
         
@@ -111,8 +115,8 @@ class MainViewController: UIViewController {
         view.addConstraint(NSLayoutConstraint(item: stepRunButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 200))
     }
     
-    func changeStepGoal(_ sender: UIButton) {
-        
+    func changeStepGoal(_ sender: UIButton)
+    {
         let alert = UIAlertController(title: "Update Step Goal", message: "Enter in the number of steps you would like to run on the daily.", preferredStyle: .alert)
         
         alert.addTextField(configurationHandler: {
@@ -137,11 +141,13 @@ class MainViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func potatoRun(_ sender: UIButton) {
+    func potatoRun(_ sender: UIButton)
+    {
         completeStepGoal()
     }
     
-    func completeStepGoalInBackground() {
+    func completeStepGoalInBackground()
+    {
         // increase by 1 so we can see if it's happening
         self.stepGoal += 1
         completeStepGoal()
@@ -163,23 +169,29 @@ class MainViewController: UIViewController {
     }
     
     // TODO: completion handler
-    func checkAndRequestAuthorization() {
+    func checkAndRequestAuthorization()
+    {
         print("checkAndRequestAuthorization")
         
         // Check authorization and request if needed
-        if !(healthKitStore.authorizationStatus(for: HKObjectType.quantityType(forIdentifier: .stepCount)!) == .sharingAuthorized) {
+        if !(healthKitStore.authorizationStatus(for: HKObjectType.quantityType(forIdentifier: .stepCount)!) == .sharingAuthorized)
+        {
             authorizeHealthKit(completion: {
                 (authorized, error) -> Void in
-                if !authorized {
+                if !authorized
+                {
                     print("Health Kit not authorized!")
-                } else {
+                }
+                else
+                {
                     print("Health Kit authorized!")
                 }
             })
         }
     }
     
-    func dayDate() -> Date {
+    func dayDate() -> Date
+    {
         // Same day, but 4AM - unlikely to overlap with any data
         let calendar = Calendar.current
         var components = calendar.dateComponents(in: .current, from: Date())
@@ -190,7 +202,8 @@ class MainViewController: UIViewController {
         return components.date!
     }
     
-    func addSteps(_ value: Double) {
+    func addSteps(_ value: Double)
+    {
         checkAndRequestAuthorization()
         
         let startDate = dayDate()
@@ -210,7 +223,8 @@ class MainViewController: UIViewController {
         })
     }
     
-    func getSteps(completion: ((_ stepCount: Double) -> Void)?) {
+    func getSteps(completion: ((_ stepCount: Double) -> Void)?)
+    {
         checkAndRequestAuthorization()
         
         let stepQuantityType = HKQuantityType.quantityType(forIdentifier: .stepCount)
@@ -225,22 +239,26 @@ class MainViewController: UIViewController {
         
         query.initialResultsHandler = {
             query, results, error in
-            if error != nil {
+            if error != nil
+            {
                 print("getSteps: \(error?.localizedDescription ?? "Error")")
                 return
             }
             
-            if let results = results {
+            if let results = results
+            {
                 results.enumerateStatistics(from: startDate, to: endDate, with: {
                     statistics, stop in
                     
-                    if let quantity = statistics.sumQuantity() {
+                    if let quantity = statistics.sumQuantity()
+                    {
                         let steps = quantity.doubleValue(for: HKUnit.count())
                         
                         print("Steps: \(steps)")
                         completion?(steps)
                     }
-                    else {
+                    else
+                    {
                         completion?(0)
                     }
                 })
@@ -250,23 +268,26 @@ class MainViewController: UIViewController {
         healthKitStore.execute(query)
     }
     
-    func authorizeHealthKit(completion: @escaping (Bool, Error?) -> Swift.Void) {
-     
+    func authorizeHealthKit(completion: @escaping (Bool, Error?) -> Swift.Void)
+    {
         print("authorizeHealthKit")
         
         let dataToRead = Set(arrayLiteral: HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!)
         let dataToWrite = Set(arrayLiteral: HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!)
         
-        if !HKHealthStore.isHealthDataAvailable() {
+        if !HKHealthStore.isHealthDataAvailable()
+        {
             print("Health Kit ain't available.")
         }
         
         healthKitStore.requestAuthorization(toShare: dataToWrite, read: dataToRead, completion: {
             (success, error) -> Void in
-            if error != nil {
+            if error != nil
+            {
                 print("authorizeHealthKit: \(error?.localizedDescription ?? "Error")")
             }
-            else {
+            else
+            {
                 completion(success, error)
             }
         })
