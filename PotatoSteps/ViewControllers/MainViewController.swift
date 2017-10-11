@@ -180,12 +180,10 @@ class MainViewController: UIViewController {
     }
     
     func dayDate() -> Date {
-        return Date()
-        
-        // Same day, but 6AM
+        // Same day, but 4AM - unlikely to overlap with any data
         let calendar = Calendar.current
         var components = calendar.dateComponents(in: .current, from: Date())
-        components.hour = 6
+        components.hour = 4
         components.minute = 0
         components.second = 0
         
@@ -193,7 +191,6 @@ class MainViewController: UIViewController {
     }
     
     func addSteps(_ value: Double) {
-        
         checkAndRequestAuthorization()
         
         let startDate = dayDate()
@@ -214,13 +211,10 @@ class MainViewController: UIViewController {
     }
     
     func getSteps(completion: ((_ stepCount: Double) -> Void)?) {
-        
         checkAndRequestAuthorization()
         
         let stepQuantityType = HKQuantityType.quantityType(forIdentifier: .stepCount)
-        let date = Date()
-        let calendar = Calendar.current
-        let startDate = calendar.startOfDay(for: date)
+        let startDate = Calendar.current.startOfDay(for: Date())
         let endDate = Date()
         
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictStartDate)
