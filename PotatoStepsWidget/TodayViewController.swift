@@ -14,6 +14,8 @@ class TodayViewController: UIViewController, NCWidgetProviding
     @IBOutlet weak var stepCountLabel: UILabel!
     @IBOutlet weak var stepRunButton: UIButton!
     
+    var stepGoal: Double = 0
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -22,13 +24,26 @@ class TodayViewController: UIViewController, NCWidgetProviding
         self.addConstraints()
         
         stepCountLabel.textColor = UIColor.white
-        
         stepRunButton.addTarget(self, action: #selector(potatoRun(_:)), for: .touchUpInside)
+        stepGoal = UserDefaults.init(suiteName: "group.com.sandzapps")?.value(forKey: "stepGoalKey") as? Double ?? 0
+        
+        HealthKitManager.getSteps(completion: { stepCount in
+            DispatchQueue.main.async {
+                self.stepCountLabel.text = "Steps: \(Int(stepCount))/\(Int(self.stepGoal))"
+            }
+        })
     }
     
     @objc func potatoRun(_ sender: UIButton)
     {
-        PotatoRun.completeStepGoal()
+        PotatoRun.completeStepGoal(completion: { success, error in
+            HealthKitManager.getSteps(completion: { stepCount in
+                DispatchQueue.main.async {
+                    self.stepCountLabel.text = "Steps: \(Int(stepCount))/\(Int(self.stepGoal))"
+                }
+            })
+        })
+        
     }
     
     func addConstraints()

@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>PotatoStepsWidget</string>
+	<string>PotatoSteps</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -27,5 +27,9 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.widget-extension</string>
 	</dict>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Widget - gimme yo health data! </string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Widget - cheatin' yo! </string>
 </dict>
 </plist>

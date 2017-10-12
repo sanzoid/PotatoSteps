@@ -56,6 +56,7 @@
 		5A5799AD1F8D9E4E007FCB77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A5799B61F8DA437007FCB77 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		5A5799B91F8DABAA007FCB77 /* PotatoRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotatoRun.swift; sourceTree = "<group>"; };
+		5A5799BC1F8F239C007FCB77 /* PotatoStepsWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PotatoStepsWidget.entitlements; sourceTree = "<group>"; };
 		5A724F7B1F8AC0000096AC78 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Storyboards/Main.storyboard; sourceTree = "<group>"; };
 		5A7AB3231F89E46D002AA87F /* PotatoSteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PotatoSteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7AB3261F89E46D002AA87F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +91,7 @@
 		5A5799A71F8D9E4E007FCB77 /* PotatoStepsWidget */ = {
 			isa = PBXGroup;
 			children = (
+				5A5799BC1F8F239C007FCB77 /* PotatoStepsWidget.entitlements */,
 				5A5799A81F8D9E4E007FCB77 /* TodayViewController.swift */,
 				5A5799AA1F8D9E4E007FCB77 /* MainInterface.storyboard */,
 				5A5799AD1F8D9E4E007FCB77 /* Info.plist */,
@@ -202,12 +204,20 @@
 						CreatedOnToolsVersion = 9.0;
 						DevelopmentTeam = BHCQLQ9GC9;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					5A7AB3221F89E46C002AA87F = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = BHCQLQ9GC9;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
@@ -326,6 +336,7 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = PotatoStepsWidget/PotatoStepsWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BHCQLQ9GC9;
@@ -352,6 +363,7 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = PotatoStepsWidget/PotatoStepsWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BHCQLQ9GC9;

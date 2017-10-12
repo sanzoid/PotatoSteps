@@ -30,13 +30,13 @@ class MainViewController: UIViewController
     static let stepGoalKey = "stepGoalKey"
     static let tempTextKey = "tempTextKey"
     
-    var stepGoal: Double = UserDefaults.standard.value(forKey: MainViewController.stepGoalKey) as? Double ?? 0 {
+    var stepGoal: Double = UserDefaults.init(suiteName: "group.com.sandzapps")?.value(forKey: MainViewController.stepGoalKey) as? Double ?? 0 {
         didSet {
             if let stepGoalLabel = stepGoalLabel
             {
                 stepGoalLabel.text = "\(Int(stepGoal))"
             }
-            UserDefaults.standard.set(stepGoal, forKey: MainViewController.stepGoalKey)
+            UserDefaults.init(suiteName: "group.com.sandzapps")?.set(stepGoal, forKey: MainViewController.stepGoalKey)
         }
     }
     
@@ -58,7 +58,6 @@ class MainViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
         self.setConstraints()
         
         // labels
@@ -71,13 +70,25 @@ class MainViewController: UIViewController
         stepGoalChangeButton.addTarget(self, action: #selector(changeStepGoal(_:)), for: .touchUpInside)
         stepRunButton.addTarget(self, action: #selector(potatoRun(_:)), for: .touchUpInside)
 
-        stepGoal = UserDefaults.standard.value(forKey: MainViewController.stepGoalKey) as? Double ?? 0
+        stepGoal = UserDefaults.init(suiteName: "group.com.sandzapps")?.value(forKey: MainViewController.stepGoalKey) as? Double ?? 0
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(fetchSteps), name: Notification.Name.UIApplicationWillEnterForeground , object: nil)
+    }
+    
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewDidAppear(_ animated: Bool)
     {
-        tempLabel?.text = UserDefaults.standard.value(forKey: MainViewController.tempTextKey) as? String ?? "Error"
+        tempLabel?.text = UserDefaults.init(suiteName: "group.com.sandzapps")?.value(forKey: MainViewController.tempTextKey) as? String ?? "Error"
         
+        fetchSteps()
+    }
+    
+    func fetchSteps()
+    {
         HealthKitManager.getSteps(completion: { stepCount in
             self.todaysSteps = stepCount
         })
@@ -140,7 +151,11 @@ class MainViewController: UIViewController
     
     func potatoRun(_ sender: UIButton)
     {
-        PotatoRun.completeStepGoal()
+        PotatoRun.completeStepGoal(completion: { success, error in
+            HealthKitManager.getSteps(completion: { stepCount in
+                self.todaysSteps = stepCount
+            })
+        })
     }
     
 //    func completeStepGoal()

@@ -14,12 +14,16 @@ class PotatoRun
     {
         // increase by 1 so we can see if it's happening
         //self.stepGoal += 1
-        completeStepGoal()
+        completeStepGoal(completion: { success, error in
+            HealthKitManager.getSteps(completion: { stepCount in
+                
+            })
+        })
     }
     
-    static func completeStepGoal()
+    static func completeStepGoal(completion: ((Bool, Error?) -> Void)?)
     {
-        let stepGoal = UserDefaults.standard.value(forKey: "stepGoalKey") as? Double ?? 0
+        let stepGoal = UserDefaults.init(suiteName: "group.com.sandzapps")?.value(forKey: "stepGoalKey") as? Double ?? 0
         print("completeStepGoal \(stepGoal)")
         
         // if steps < stepGoal, add remaining
@@ -27,9 +31,7 @@ class PotatoRun
             if stepCount < stepGoal {
                 HealthKitManager.addSteps(stepGoal - stepCount,
                                           completion: { success, error in
-                                            HealthKitManager.getSteps(completion: { stepCount in
-                                                
-                                            })
+                                            completion?(success, error)
                 })
             }
             else {
