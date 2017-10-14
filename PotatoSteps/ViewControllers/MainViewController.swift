@@ -82,7 +82,7 @@ class MainViewController: UIViewController
     
     override func viewDidAppear(_ animated: Bool)
     {
-        tempLabel?.text = UserDefaults.init(suiteName: "group.com.sandzapps")?.value(forKey: MainViewController.tempTextKey) as? String ?? "Error"
+        tempLabel?.text = UserDefaults.standard.value(forKey: MainViewController.tempTextKey) as? String ?? "Error"
         
         fetchSteps()
     }
