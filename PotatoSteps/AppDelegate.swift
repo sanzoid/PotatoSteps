@@ -20,13 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.backgroundColor = UIColor.white
         self.window!.makeKeyAndVisible()
         
+//        let navViewController = UINavigationController()
+//        navViewController.viewControllers.append(StepsViewController())
+//        self.window?.rootViewController = navViewController
+        
         // set root view controller
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateInitialViewController()
         self.window?.rootViewController = initialViewController
         
         // set how often a background fetch will occur
-        UIApplication.shared.setMinimumBackgroundFetchInterval(60)
+        UIApplication.shared.setMinimumBackgroundFetchInterval(60*60)
         
         return true
     }

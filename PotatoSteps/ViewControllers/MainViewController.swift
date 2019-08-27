@@ -177,4 +177,17 @@ class MainViewController: UIViewController
 //            }
 //        })
 //    }
+    
+    @IBAction func testButtonPressed() {
+        let activityViewController = MyActivityViewController(activityItems: [], applicationActivities: nil)
+        activityViewController.excludedActivityTypes = [
+            
+        ]
+    }
+}
+
+class MyActivityViewController: UIActivityViewController {
+    func _excludedActivityTypes(_ activityType: UIActivityType) {
+        print("wee \(activityType.rawValue)")
+    }
 }

@@ -16,12 +16,13 @@
 		5A5799B81F8DAB18007FCB77 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5799B61F8DA437007FCB77 /* HealthKitManager.swift */; };
 		5A5799BA1F8DABAA007FCB77 /* PotatoRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5799B91F8DABAA007FCB77 /* PotatoRun.swift */; };
 		5A5799BB1F8DABE0007FCB77 /* PotatoRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5799B91F8DABAA007FCB77 /* PotatoRun.swift */; };
+		5A757F421FC15C8100315A38 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A757F411FC15C8100315A38 /* HealthKit.framework */; };
 		5A7AB3271F89E46D002AA87F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7AB3261F89E46D002AA87F /* AppDelegate.swift */; };
 		5A7AB3291F89E46D002AA87F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A7AB3281F89E46D002AA87F /* Assets.xcassets */; };
 		5A7AB32C1F89E46D002AA87F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A7AB32A1F89E46D002AA87F /* LaunchScreen.storyboard */; };
-		5A7AB3381F89E694002AA87F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7AB3371F89E694002AA87F /* HealthKit.framework */; };
 		5A7AB33B1F89E76B002AA87F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7AB33A1F89E76B002AA87F /* MainViewController.swift */; };
 		5A8D400E1F92AD1900707362 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A8D400D1F92AB3500707362 /* Main.storyboard */; };
+		5A8D40101F92ADDF00707362 /* StepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8D400F1F92ADDF00707362 /* StepsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,15 +58,16 @@
 		5A5799B61F8DA437007FCB77 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		5A5799B91F8DABAA007FCB77 /* PotatoRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotatoRun.swift; sourceTree = "<group>"; };
 		5A5799BC1F8F239C007FCB77 /* PotatoStepsWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PotatoStepsWidget.entitlements; sourceTree = "<group>"; };
+		5A757F411FC15C8100315A38 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		5A7AB3231F89E46D002AA87F /* PotatoSteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PotatoSteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7AB3261F89E46D002AA87F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A7AB3281F89E46D002AA87F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A7AB32B1F89E46D002AA87F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A7AB32D1F89E46D002AA87F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A7AB3331F89E66A002AA87F /* PotatoSteps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PotatoSteps.entitlements; sourceTree = "<group>"; };
-		5A7AB3371F89E694002AA87F /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		5A7AB33A1F89E76B002AA87F /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ViewControllers/MainViewController.swift; sourceTree = "<group>"; };
 		5A8D400D1F92AB3500707362 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Storyboards/Main.storyboard; sourceTree = "<group>"; };
+		5A8D400F1F92ADDF00707362 /* StepsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StepsViewController.swift; path = ViewControllers/StepsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A7AB3381F89E694002AA87F /* HealthKit.framework in Frameworks */,
+				5A757F421FC15C8100315A38 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +138,7 @@
 		5A7AB3341F89E66A002AA87F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5A7AB3371F89E694002AA87F /* HealthKit.framework */,
+				5A757F411FC15C8100315A38 /* HealthKit.framework */,
 				5A5799A51F8D9E4E007FCB77 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				5A7AB33A1F89E76B002AA87F /* MainViewController.swift */,
+				5A8D400F1F92ADDF00707362 /* StepsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				5A7AB33B1F89E76B002AA87F /* MainViewController.swift in Sources */,
 				5A5799BA1F8DABAA007FCB77 /* PotatoRun.swift in Sources */,
 				5A5799B71F8DA437007FCB77 /* HealthKitManager.swift in Sources */,
+				5A8D40101F92ADDF00707362 /* StepsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

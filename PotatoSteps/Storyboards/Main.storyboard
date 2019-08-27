@@ -82,7 +82,13 @@
                             <constraint firstItem="a5r-dw-7gm" firstAttribute="top" secondItem="SGb-8L-wWz" secondAttribute="bottom" constant="8" id="yT1-iJ-4Kx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="n6Z-S4-4hi"/>
+                    <navigationItem key="navigationItem" id="n6Z-S4-4hi">
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="action" id="sSY-lF-erE">
+                            <connections>
+                                <action selector="testButtonPressed" destination="Cfd-LC-m3I" id="Suc-CY-9pn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="stepCountLabel" destination="lsA-kW-k6O" id="sej-Rv-aik"/>
                         <outlet property="stepGoalChangeButton" destination="Gw0-n1-4Qt" id="hV4-ah-RYN"/>
