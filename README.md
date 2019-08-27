@@ -11,10 +11,7 @@ Then this is the app for you!
 
 Two steps and you've run a marathon! 
 
-![Launch Screen](documentation/potatosteps_1launch.png | width=100) 
-![Health Kit](documentation/potatosteps_2permissions.png | width=100) 
-![Change Step Goal](documentation/potatosteps_3changestepgoal.png | width=100) 
-![Complete Step Goal](documentation/potatosteps_4completesteps.png | width=100)
+<img src="documentation/potatosteps_1launch.png" width="100"/> <img src="documentation/potatosteps_2permissions.png" width="100"/> 
 
 ## Automatic Daily Step Goal Completion
 With background app refresh turned on, the app is able to automatically complete your step goal! The system decides on when to fire background events based on when the user uses the app, so this feature is not a sure thing. 
