@@ -13,9 +13,9 @@ Then this is the app for you!
 
 Two steps and you've run a marathon! 
 
-<img src="documentation/potatosteps_1launch.png" width="200"/> <img src="documentation/potatosteps_2permissions.png" width="200"/> 
-<img src="documentation/potatosteps_3changestepgoal.png" width="200"/> <img src="documentation/potatosteps_4completesteps.png" width="200"/> 
-<img src="documentation/potatosteps_5widget.png" width="200"/>
+<img src="documentation/potatosteps_1launch.png" width="300"/> <img src="documentation/potatosteps_2permissions.png" width="300"/> 
+<img src="documentation/potatosteps_3changestepgoal.png" width="300"/> <img src="documentation/potatosteps_4completesteps.png" width="300"/> 
+<img src="documentation/potatosteps_5widget.png" width="300"/>
 
 ## Automatic Daily Step Goal Completion
 With background app refresh turned on, the app is able to automatically complete your step goal! The system decides on when to fire background events based on when the user uses the app, so this feature is not a sure thing. 
