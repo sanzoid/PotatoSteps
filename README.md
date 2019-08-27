@@ -2,6 +2,8 @@
 
 > Disclaimer: This app was completed within a weekend, then later migrated to Swift 5 just so it could run. It is no longer be worked on. 
 
+![](documentation/potatosteps_0appicon.png)
+
 Are you a potato and want to get your steps in? 
 
 Then this is the app for you! 
