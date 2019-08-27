@@ -72,7 +72,7 @@ class MainViewController: UIViewController
 
         stepGoal = UserDefaults.init(suiteName: "group.com.sandzapps")?.value(forKey: MainViewController.stepGoalKey) as? Double ?? 0
         
-        NotificationCenter.default.addObserver(self, selector: #selector(fetchSteps), name: Notification.Name.UIApplicationWillEnterForeground , object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(fetchSteps), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     deinit
@@ -87,7 +87,7 @@ class MainViewController: UIViewController
         fetchSteps()
     }
     
-    func fetchSteps()
+    @objc func fetchSteps()
     {
         HealthKitManager.getSteps(completion: { stepCount in
             self.todaysSteps = stepCount
@@ -108,7 +108,7 @@ class MainViewController: UIViewController
         }
         
         // vertical constraints
-        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-74-[stepGoalChangeButton]-8-[stepGoalTitleLabel]-16-[stepGoalLabel]-24-[stepRunButton]-48-[stepCountLabel]", options: [], metrics: nil, views: views)
+        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-94-[stepGoalChangeButton]-8-[stepGoalTitleLabel]-16-[stepGoalLabel]-24-[stepRunButton]-48-[stepCountLabel]", options: [], metrics: nil, views: views)
         view.addConstraints(verticalConstraints)
         
         // horizontal constraints
@@ -123,7 +123,7 @@ class MainViewController: UIViewController
         view.addConstraint(NSLayoutConstraint(item: stepRunButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 200))
     }
     
-    func changeStepGoal(_ sender: UIButton)
+    @objc func changeStepGoal(_ sender: UIButton)
     {
         let alert = UIAlertController(title: "Update Step Goal", message: "Enter in the number of steps you would like to run on the daily.", preferredStyle: .alert)
         
@@ -149,7 +149,7 @@ class MainViewController: UIViewController
         self.present(alert, animated: true, completion: nil)
     }
     
-    func potatoRun(_ sender: UIButton)
+    @objc func potatoRun(_ sender: UIButton)
     {
         PotatoRun.completeStepGoal(completion: { success, error in
             HealthKitManager.getSteps(completion: { stepCount in
@@ -187,7 +187,7 @@ class MainViewController: UIViewController
 }
 
 class MyActivityViewController: UIActivityViewController {
-    func _excludedActivityTypes(_ activityType: UIActivityType) {
+    func _excludedActivityTypes(_ activityType: UIActivity.ActivityType) {
         print("wee \(activityType.rawValue)")
     }
 }

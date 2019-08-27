@@ -58,11 +58,11 @@ class StepsViewController: UIViewController {
         }()
 
         runButton = {
-            let button = UIButton(type: UIButtonType.custom)
+            let button = UIButton(type: UIButton.ButtonType.custom)
             button.setImage( #imageLiteral(resourceName: "potatosteps_round"), for: .normal)
             button.imageEdgeInsets = UIEdgeInsets.zero
             button.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-            button.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+            button.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
             return button
         }()
         
@@ -127,7 +127,7 @@ class StepsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func pressSettings(_ sender: UIButton) {
+    @objc func pressSettings(_ sender: UIButton) {
         
     }
 
