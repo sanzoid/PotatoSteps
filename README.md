@@ -1,5 +1,7 @@
 # PotatoSteps 
 
+> Disclaimer: This app was completed within a weekend, then later migrated to Swift 5 just so it could run. It is no longer be worked on. 
+
 Are you a potato and want to get your steps in? 
 
 Then this is the app for you! 
@@ -8,6 +10,11 @@ Then this is the app for you!
 - Step 2: Complete step goal. 
 
 Two steps and you've run a marathon! 
+
+![Launch Screen](documentation/potatosteps_1launch.png)
+![Health Kit](documentation/potatosteps_2permissions.png)
+![Change Step Goal](documentation/potatosteps_3changestepgoal.png)
+![Complete Step Goal](documentation/potatosteps_4completesteps.png)
 
 ## Automatic Daily Step Goal Completion
 With background app refresh turned on, the app is able to automatically complete your step goal! The system decides on when to fire background events based on when the user uses the app, so this feature is not a sure thing. 
