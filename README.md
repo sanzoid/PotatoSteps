@@ -1,6 +1,6 @@
 # PotatoSteps 
 
-> Disclaimer: This app was completed within a weekend, then later migrated to Swift 5 just so it could run. It is no longer be worked on. 
+> Disclaimer: This app was completed within a weekend, then later migrated to Swift 5 just so it could run. It is no longer being worked on. 
 
 ![](documentation/potatosteps_0appicon.png)
 
