@@ -213,7 +213,7 @@
 				TargetAttributes = {
 					5A5799A31F8D9E4E007FCB77 = {
 						CreatedOnToolsVersion = 9.0;
-						DevelopmentTeam = BHCQLQ9GC9;
+						DevelopmentTeam = FRXK2SYN9X;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -223,7 +223,7 @@
 					};
 					5A7AB3221F89E46C002AA87F = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = BHCQLQ9GC9;
+						DevelopmentTeam = FRXK2SYN9X;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -352,11 +352,11 @@
 				CODE_SIGN_ENTITLEMENTS = PotatoStepsWidget/PotatoStepsWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BHCQLQ9GC9;
+				DEVELOPMENT_TEAM = FRXK2SYN9X;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = PotatoStepsWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sandzapps.PotatoSteps.PotatoStepsWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sanzapps.PotatoSteps.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -379,11 +379,11 @@
 				CODE_SIGN_ENTITLEMENTS = PotatoStepsWidget/PotatoStepsWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BHCQLQ9GC9;
+				DEVELOPMENT_TEAM = FRXK2SYN9X;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = PotatoStepsWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sandzapps.PotatoSteps.PotatoStepsWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sanzapps.PotatoSteps.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -491,10 +491,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PotatoSteps/PotatoSteps.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = BHCQLQ9GC9;
+				DEVELOPMENT_TEAM = FRXK2SYN9X;
 				INFOPLIST_FILE = PotatoSteps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sandzapps.PotatoSteps;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sanzapps.PotatoSteps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -507,10 +507,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PotatoSteps/PotatoSteps.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = BHCQLQ9GC9;
+				DEVELOPMENT_TEAM = FRXK2SYN9X;
 				INFOPLIST_FILE = PotatoSteps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sandzapps.PotatoSteps;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sanzapps.PotatoSteps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
